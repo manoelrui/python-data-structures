@@ -19,6 +19,11 @@ class ABCList:
     def remove(self, value):
         pass
 
+    @abstractmethod
+    def isEmpty(self):
+        pass
+
 	@abstractmethod
 	def __str__(self):
 			pass
+
