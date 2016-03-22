@@ -38,6 +38,7 @@ class LinkedList(ABCList):
 			father.next = nodeToRemove.next
 
 		del nodeToRemove
+		self.length -= 1
 
 	def __str__(self):
 		resultString = ""
