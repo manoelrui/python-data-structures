@@ -23,6 +23,14 @@ class ABCList:
     def isEmpty(self):
         pass
 
+    @abstractmethod
+    def printRecursive(self, node):
+        pass
+
+    @abstractmethod
+    def printReverse(self):
+        pass
+
 	@abstractmethod
 	def __str__(self):
 			pass
