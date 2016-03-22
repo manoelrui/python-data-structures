@@ -28,7 +28,7 @@ class ABCList:
         pass
 
     @abstractmethod
-    def printReverse(self):
+    def printReverse(self, node):
         pass
 
 	@abstractmethod

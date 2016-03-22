@@ -48,11 +48,13 @@ class LinkedList(ABCList):
     def printRecursive(self, node=None):
         if node == None:
             return ""
-
         return str(node.value) +  " " + self.printRecursive(node.next)
 
-    def printReverse(self):
-        pass
+    def printReverse(self, node=None):
+        self.printRecursive(node.next)
+        if node == None:
+            return ""
+        return str(node.value) +  " " + self.printRecursive(node.next)
 
     def __str__(self):
         resultString = ""
