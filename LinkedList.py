@@ -1,5 +1,6 @@
 from List import ABCList
 from Node import Node
+from graphviz import Digraph
 
 class LinkedList(ABCList):	
 	def add(self, value):
@@ -27,3 +28,15 @@ class LinkedList(ABCList):
 				itNode = itNode.next
 		return resultString
 
+	def graph(self):
+		g = Digraph('G', filename='LinkedList')
+		g.body.extend(['rankdir=LR'])
+
+		itNode = self.head
+		if itNode != None:
+			g.node(str(itNode.value))
+			while(itNode.next != None):
+				g.edge(str(itNode.value), str(itNode.next.value))
+				g.node(str(itNode.next.value))
+				itNode = itNode.next
+		g.view()
