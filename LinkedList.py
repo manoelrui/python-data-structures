@@ -13,10 +13,31 @@ class LinkedList(ABCList):
 		self.length += 1
 
 	def find(self, value):
-		pass
+		father, node = self.findNode(value).value
+		return node.value
+
+	def findNode(self, value):
+		fatherNode = None
+		itNode = self.head
+		while(True):
+			if value == itNode.value:
+				return fatherNode, itNode
+
+			if itNode.next == None:
+				return None, None
+
+			fatherNode = itNode
+			itNode = itNode.next
 	
 	def remove(self, value):
-		pass
+		father, nodeToRemove = self.findNode(value)
+
+		if nodeToRemove == self.head:
+			self.head = nodeToRemove.next
+		else:
+			father.next = nodeToRemove.next
+
+		del nodeToRemove
 
 	def __str__(self):
 		resultString = ""
