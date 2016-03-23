@@ -14,7 +14,7 @@ class LinkedList(ABCList):
 
 
     def find(self, value):
-        father, node = self.findNode(value).value
+        father, node = self.findNode(value)
         return node.value
 
 
