@@ -78,11 +78,12 @@ class LinkedList(ABCList):
         if self.head == None:
             return
 
-        while(self.head.next != None):
+        while(self.head != None):
             nodeToRemove = self.head
             self.head = self.head.next
             del nodeToRemove
 
+        self.length = 0
 
     def printRecursive(self):
         return self.__printRecursive(self.head)

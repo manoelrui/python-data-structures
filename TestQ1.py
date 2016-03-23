@@ -100,7 +100,14 @@ class TestQ1(unittest.TestCase):
 
 #10. Liberar a lista;
     def test_list_clean(self):
-        pass
+        list = LinkedList()
+        list.add(5)
+        list.add(34)
+        list.add(980)
+        list.clean()
+        self.assertEqual(list.length, 0)
+        self.assertIsNone(list.head)
+        self.assertEqual(list.length, 0)
 
 
 if __name__ == '__main__':
