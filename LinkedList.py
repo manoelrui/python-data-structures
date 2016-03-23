@@ -35,6 +35,9 @@ class LinkedList(ABCList):
     def remove(self, value):
         father, nodeToRemove = self.findNode(value)
 
+        if nodeToRemove == None:
+            return None
+
         if nodeToRemove == self.head:
             self.head = nodeToRemove.next
         else:
@@ -43,6 +46,25 @@ class LinkedList(ABCList):
         del nodeToRemove
         self.length -= 1
 
+    def removeRecursive(self, value):
+        return self.__removeRecursive(None, self.head, value);
+
+    def __removeRecursive(self, father, node, value):
+        if node == None:
+            return None, None
+
+        if node.value == value:
+            if node == self.head:
+                self.head = node.next
+            else:
+                father.next = node.next
+
+            del node
+            self.length -= 1
+            return
+
+        father = node
+        self.__removeRecursive(father, node.next, value)
 
     def isEmpty(self):
         if self.length == 0:
