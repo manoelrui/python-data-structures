@@ -9,7 +9,9 @@ list.add(7)
 list.add(789)
 list.add(6733)
 list.add(77)
+list.add(234)
 
+print list.find(34)
 list.removeRecursive(67)
 
 print 'Length of List: ', list.length

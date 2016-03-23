@@ -15,6 +15,8 @@ class LinkedList(ABCList):
 
     def find(self, value):
         father, node = self.findNode(value)
+        if node == None:
+            return None
         return node.value
 
 
