@@ -12,9 +12,11 @@ class LinkedList(ABCList):
             self.head = newNode
         self.length += 1
 
+
     def find(self, value):
         father, node = self.findNode(value).value
         return node.value
+
 
     def findNode(self, value):
         fatherNode = None
@@ -29,6 +31,7 @@ class LinkedList(ABCList):
             fatherNode = itNode
             itNode = itNode.next
 
+
     def remove(self, value):
         father, nodeToRemove = self.findNode(value)
 
@@ -40,10 +43,12 @@ class LinkedList(ABCList):
         del nodeToRemove
         self.length -= 1
 
+
     def isEmpty(self):
         if self.length == 0:
             return True
         return False
+
 
     def clean(self):
         if self.head == None:
@@ -55,23 +60,33 @@ class LinkedList(ABCList):
             del nodeToRemove
 
 
-    def printRecursive(self, node=None):
-        if node == None:
-            return ""
-        result = self.printRecursive(node.next)
-        if result == "":
-            return str(node.value)
-        else:
-            return str(node.value) +  " " + self.printRecursive(node.next)
+    def printRecursive(self):
+        return self.__printRecursive(self.head)
 
-    def printReverse(self, node=None):
+
+    def __printRecursive(self, node=None):
         if node == None:
             return ""
-        result = self.printReverse(node.next)
+        result = self.__printRecursive(node.next)
         if result == "":
             return str(node.value)
         else:
-            return self.printReverse(node.next) + " " + str(node.value)
+            return str(node.value) +  " " + self.__printRecursive(node.next)
+
+
+    def printReverse(self):
+         return self.__printReverse(self.head)
+
+
+    def __printReverse(self, node=None):
+        if node == None:
+            return ""
+        result = self.__printReverse(node.next)
+        if result == "":
+            return str(node.value)
+        else:
+            return self.__printReverse(node.next) + " " + str(node.value)
+
 
     def __str__(self):
         resultString = ""
@@ -82,6 +97,7 @@ class LinkedList(ABCList):
                 resultString += " " + str(itNode.next.value)
                 itNode = itNode.next
         return resultString
+
 
     def graph(self):
         g = Digraph('G', filename='LinkedList')
