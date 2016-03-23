@@ -107,6 +107,8 @@ class TestQ1(unittest.TestCase):
         list.clean()
         self.assertEqual(list.length, 0)
         self.assertIsNone(list.head)
+
+        list.clean()
         self.assertEqual(list.length, 0)
 
 
