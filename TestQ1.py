@@ -82,7 +82,20 @@ class TestQ1(unittest.TestCase):
 
 #9.Remover um determinado elemento da lista usando recursao;
     def test_remove_recursion(self):
-        pass
+        list = LinkedList()
+        list.add(45)
+        list.add(33)
+        list.add(323)
+        list.add(76)
+        self.assertEqual(list.length, 4)
+
+        list.removeRecursive(76)
+        self.assertEqual(list.length, 3)
+        self.assertIsNone(list.find(76))
+
+        list.removeRecursive(45)
+        self.assertEqual(list.length, 2)
+        self.assertIsNone(list.find(45))
 
 
 #10. Liberar a lista;
