@@ -24,6 +24,10 @@ class ABCList:
         pass
 
     @abstractmethod
+    def clean(self):
+        pass
+
+    @abstractmethod
     def printRecursive(self, node):
         pass
 

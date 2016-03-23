@@ -45,16 +45,33 @@ class LinkedList(ABCList):
             return True
         return False
 
+    def clean(self):
+        if self.head == None:
+            return
+
+        while(self.head.next != None):
+            nodeToRemove = self.head
+            self.head = self.head.next
+            del nodeToRemove
+
+
     def printRecursive(self, node=None):
         if node == None:
             return ""
-        return str(node.value) +  " " + self.printRecursive(node.next)
+        result = self.printRecursive(node.next)
+        if result == "":
+            return str(node.value)
+        else:
+            return str(node.value) +  " " + self.printRecursive(node.next)
 
     def printReverse(self, node=None):
-        self.printRecursive(node.next)
         if node == None:
             return ""
-        return str(node.value) +  " " + self.printRecursive(node.next)
+        result = self.printReverse(node.next)
+        if result == "":
+            return str(node.value)
+        else:
+            return self.printReverse(node.next) + " " + str(node.value)
 
     def __str__(self):
         resultString = ""
