@@ -48,3 +48,7 @@ class ABCList:
 	def __str__(self):
 			pass
 
+    @abstractmethod
+    def __eq__(self, list):
+			pass
+
