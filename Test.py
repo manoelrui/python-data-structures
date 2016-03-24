@@ -14,5 +14,5 @@ list.removeRecursive(67)
 
 print 'Length of List: ', list.length
 print list
-list.graph()
+list.printGraphically()
 list.clean()

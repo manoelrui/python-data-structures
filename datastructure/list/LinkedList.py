@@ -123,7 +123,7 @@ class LinkedList(ABCList):
         return resultString
 
 
-    def graph(self):
+    def printGraphically(self):
         g = Digraph('G', filename='LinkedList')
         g.body.extend(['rankdir=LR'])
 
