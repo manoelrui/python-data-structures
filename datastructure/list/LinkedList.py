@@ -129,9 +129,42 @@ class LinkedList(ABCList):
 
         itNode = self.head
         if itNode != None:
-            g.node(str(itNode.value))
-            while (itNode.next != None):
+            g.node("HEAD", style="filled", fillcolor="red", shape="cds")
+            g.edge("HEAD", str(itNode.value))
+
+        while (itNode != None):
+            g.node(str(itNode.value), shape="box")
+
+            if itNode.next == None:
+                g.node("NULL", shape="none")
+                g.edge(str(itNode.value), "NULL")
+            else:
                 g.edge(str(itNode.value), str(itNode.next.value))
-                g.node(str(itNode.next.value))
-                itNode = itNode.next
+
+            itNode = itNode.next
+        g.view()
+
+
+    def findGraphically(self, value):
+        g = Digraph('G', filename='LinkedList')
+        g.body.extend(['rankdir=LR'])
+
+        itNode = self.head
+        if itNode != None:
+            g.node("HEAD", style="filled", fillcolor="red", shape="cds")
+            g.edge("HEAD", str(itNode.value))
+
+        while (itNode != None):
+            if itNode.value == value:
+                g.node(str(itNode.value), style="filled", fillcolor="green", shape="box")
+            else:
+                g.node(str(itNode.value), shape="box")
+
+            if itNode.next == None:
+                g.node("NULL", shape="none")
+                g.edge(str(itNode.value), "NULL")
+            else:
+                g.edge(str(itNode.value), str(itNode.next.value))
+
+            itNode = itNode.next
         g.view()

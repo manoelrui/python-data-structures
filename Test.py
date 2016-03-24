@@ -2,15 +2,12 @@
 from datastructure.list.LinkedList import *
 
 list = LinkedList()
-list.add(567)
 list.add(45)
-list.add(34)
-list.add(67)
-list.add(7)
-list.add(789)
-
-print list.find(34)
-list.removeRecursive(67)
+list.add(1)
+list.add(78)
+list.add(5)
+list.add(3)
+list.add(345)
 
 print 'Length of List: ', list.length
 print list
