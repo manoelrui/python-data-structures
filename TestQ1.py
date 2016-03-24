@@ -8,6 +8,7 @@ class TestQ1(unittest.TestCase):
         list = LinkedList()
         self.assertIsNotNone(list)
         self.assertIsNone(list.head)
+        self.assertEqual(list.length, 0)
 
 
 #2. Inserir elemento no inicio;
@@ -19,22 +20,38 @@ class TestQ1(unittest.TestCase):
         list.add(67)
         self.assertEqual(list.length, 2)
 
+        list.add(1)
+        self.assertEqual(list.length, 3)
+
+        list.add(18)
+        self.assertEqual(list.length, 4)
+
 #3. Imprimir os valores armazenados na lista;
     def test_print(self):
         list = LinkedList()
+        self.assertEqual("", str(list))
+
+        list.add(44)
+        self.assertEqual("44", str(list))
+
         list.add(98)
         list.add(12)
         list.add(6)
-        self.assertEqual("6 12 98", list.__str__())
+        self.assertEqual("6 12 98 44", str(list))
 
 
 #4 Imprimir os valores armazenados na lista usando recursao;
     def test_recursive_print(self):
         list = LinkedList()
+        self.assertEqual("", list.printRecursive())
+
+        list.add(34)
+        self.assertEqual("34", list.printRecursive())
+
         list.add(8)
         list.add(23)
         list.add(112)
-        self.assertEqual("112 23 8", list.printRecursive())
+        self.assertEqual("112 23 8 34", list.printRecursive())
 
 
 #5.Imprimir os valores armazenados na lista em ordem reversa (da cauda para a cabeca da lista);
@@ -51,10 +68,15 @@ class TestQ1(unittest.TestCase):
         list = LinkedList()
         self.assertTrue(list.isEmpty())
 
+        list.add(676)
+        self.assertFalse(list.isEmpty())
+
 
 #7.Recuperar/Buscar um determinado elemento da lista;
     def test_find(self):
         list = LinkedList()
+        self.assertIsNone(list.find(45))
+
         list.add(236)
         list.add(34)
         list.add(50)
@@ -62,48 +84,61 @@ class TestQ1(unittest.TestCase):
         self.assertEquals(50, list.find(50))
         self.assertEquals(670, list.find(670))
         self.assertEquals(236, list.find(236))
+        self.assertIsNone(list.find(666))
 
 #.8 Remover um determinado elemento da lista;
     def test_remove(self):
         list = LinkedList()
+        self.assertIsNone(list.remove(78))
+
         list.add(236)
         list.add(34)
+        list.add(43)
         list.add(50)
         list.add(670)
-        self.assertEqual(list.length, 4)
 
         list.remove(670)
+        self.assertEqual(list.length, 4)
+
+        list.remove(43)
         self.assertEqual(list.length, 3)
-        self.assertIsNone(list.find(670))
 
         list.remove(236)
         self.assertEqual(list.length, 2)
-        self.assertIsNone(list.find(236))
 
-        list = LinkedList()
         self.assertIsNone(list.remove(545))
+        self.assertEqual(list.length, 2)
 
 #9.Remover um determinado elemento da lista usando recursao;
     def test_remove_recursion(self):
         list = LinkedList()
-        list.add(45)
-        list.add(33)
-        list.add(323)
-        list.add(76)
+        self.assertIsNone(list.remove(78))
+
+        list.add(236)
+        list.add(34)
+        list.add(43)
+        list.add(50)
+        list.add(670)
+
+        list.remove(670)
         self.assertEqual(list.length, 4)
 
-        list.removeRecursive(76)
+        list.remove(43)
         self.assertEqual(list.length, 3)
-        self.assertIsNone(list.find(76))
 
-        list.removeRecursive(45)
+        list.remove(236)
         self.assertEqual(list.length, 2)
-        self.assertIsNone(list.find(45))
+
+        self.assertIsNone(list.remove(545))
+        self.assertEqual(list.length, 2)
 
 
 #10. Liberar a lista;
     def test_list_clean(self):
         list = LinkedList()
+        self.assertEqual(list.length, 0)
+        self.assertIsNone(list.head)
+
         list.add(5)
         list.add(34)
         list.add(980)
@@ -113,7 +148,7 @@ class TestQ1(unittest.TestCase):
 
         list.clean()
         self.assertEqual(list.length, 0)
-
+        self.assertIsNone(list.head)
 
 if __name__ == '__main__':
     unittest.main()
