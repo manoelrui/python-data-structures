@@ -52,3 +52,7 @@ class ABCList:
     def __eq__(self, list):
 			pass
 
+    @abstractmethod
+    def __ne__(self, list):
+			pass
+

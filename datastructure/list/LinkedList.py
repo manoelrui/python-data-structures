@@ -123,7 +123,22 @@ class LinkedList(ABCList):
         return resultString
 
     def __eq__(self, list):
+        if self.length != list.length:
+            return False
+
+        itNode1 = self.head
+        itNode2 = list.head
+        while (itNode1 != None):
+            if itNode1.value != itNode2.value:
+                return False
+
+            itNode1 = itNode1.next
+            itNode2 = itNode2.next
+
         return True
+
+    def __ne__(self, list):
+        return not self.__eq__(list)
 
     def printGraphically(self):
         g = Digraph('G', filename='LinkedList')
