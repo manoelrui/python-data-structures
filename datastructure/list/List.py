@@ -25,6 +25,10 @@ class ABCList:
         pass
 
     @abstractmethod
+    def removeRecursive(self, value):
+        pass
+
+    @abstractmethod
     def isEmpty(self):
         pass
 
