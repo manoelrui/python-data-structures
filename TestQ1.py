@@ -80,6 +80,9 @@ class TestQ1(unittest.TestCase):
         self.assertEqual(list.length, 2)
         self.assertIsNone(list.find(236))
 
+        list = LinkedList()
+        self.assertIsNone(list.remove(545))
+
 #9.Remover um determinado elemento da lista usando recursao;
     def test_remove_recursion(self):
         list = LinkedList()

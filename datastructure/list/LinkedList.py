@@ -23,7 +23,7 @@ class LinkedList(ABCList):
         fatherNode = None
         itNode = self.head
         while (True):
-            if value == itNode.value:
+            if itNode == None or value == itNode.value:
                 return fatherNode, itNode
 
             if itNode.next == None:
