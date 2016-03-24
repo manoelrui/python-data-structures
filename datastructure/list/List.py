@@ -1,5 +1,10 @@
 from abc import ABCMeta, abstractmethod
 
+class Node:
+	def __init__(self, value=None, next=None):
+		self.value = value
+		self.next = next
+
 class ABCList:
     __metaclass__ = ABCMeta
 

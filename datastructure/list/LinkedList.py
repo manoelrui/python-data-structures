@@ -1,5 +1,4 @@
-from List import ABCList
-from Node import Node
+from List import *
 from graphviz import Digraph
 
 class LinkedList(ABCList):

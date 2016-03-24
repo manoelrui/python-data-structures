@@ -1,5 +1,5 @@
 import unittest
-from LinkedList import LinkedList
+from datastructure.list.LinkedList import LinkedList
 
 class TestQ1(unittest.TestCase):
 

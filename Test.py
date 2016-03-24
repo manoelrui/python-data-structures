@@ -1,4 +1,5 @@
-from LinkedList import LinkedList
+#from datastricture.list.LinkedList import LinkedList
+from datastructure.list.LinkedList import *
 
 list = LinkedList()
 list.add(567)
@@ -7,9 +8,6 @@ list.add(34)
 list.add(67)
 list.add(7)
 list.add(789)
-list.add(6733)
-list.add(77)
-list.add(234)
 
 print list.find(34)
 list.removeRecursive(67)
