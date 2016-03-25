@@ -1,23 +1,19 @@
-from datastructure.list.SortedLinkedList import *
+from datastructure.list.DoublySortedLinkedList import *
 import Graphic as graph
+from datastructure.list.LinkedList import LinkedList
 
-l = SortedLinkedList()
+l = DoublySortedLinkedList()
 l.add(56)
-l.add(2)
-l.add(10)
-l.add(50)
-l.add(1)
-l.add(80)
-l.add(79)
-l.add(0)
+l.add(45)
+l.add(3)
+l.add(656)
+l.add(64)
 
-list1 = LinkedList()
-list1.add(1)
-list1.add(80)
-list1.add(79)
-list1.add(0)
+l.remove(656)
+l.remove(64)
+l.remove(3)
 
-g = graph.Graphic(list1)
+g = graph.Graphic(l)
 g.find(80)
 
 print 'Length of l: ', l.length
