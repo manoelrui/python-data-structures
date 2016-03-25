@@ -61,10 +61,15 @@ class TestQ1(unittest.TestCase):
     # 5.Imprimir os valores armazenados na lista em ordem reversa (da cauda para a cabeca da lista);
     def test_print_reverse(self):
         l = LinkedList()
+        self.assertEqual("", l.print_recursive())
+
+        l.add(13)
+        self.assertEqual("13", l.print_recursive())
+
         l.add(76)
         l.add(2)
         l.add(150)
-        self.assertEqual("76 2 150", l.print_reverse())
+        self.assertEqual("13 76 2 150", l.print_reverse())
 
     # 6.Verificar se a lista esta vazia (retorna 1 se vazia ou 0 se nao vazia);
     def test_is_empty(self):
