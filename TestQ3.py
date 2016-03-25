@@ -2,7 +2,7 @@ import unittest
 from datastructure.list.DoublySortedLinkedList import DoublySortedLinkedList
 
 
-class TestQ2(unittest.TestCase):
+class TestQ3(unittest.TestCase):
     # 1. Criar uma lista vazia;
     def test_creation(self):
         l = DoublySortedLinkedList()
