@@ -1,10 +1,16 @@
 from abc import ABCMeta, abstractmethod
 
 
-class Node:
-    def __init__(self, value=None, node=None):
+class Node(object):
+    def __init__(self, value=None, next_node=None):
         self.value = value
-        self.next = node
+        self.next = next_node
+
+
+class Node2(Node):
+    def __init__(self, value=None, next_node=None, prev_node=None):
+        super(Node2, self).__init__(value, next_node)
+        self.prev = prev_node
 
 
 class ABCList:
