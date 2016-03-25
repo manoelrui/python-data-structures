@@ -8,7 +8,7 @@ class SortedLinkedList(LinkedList):
             self.length += 1
             return
 
-        if self.length == 1 and self.head.value > value:
+        if self.head.value > value:
             newNode = Node(value)
             newNode.next = self.head
             self.head = newNode

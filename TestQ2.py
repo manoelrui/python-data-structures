@@ -38,7 +38,9 @@ class TestQ2(unittest.TestCase):
         list.add(23)
         list.add(32)
         list.add(55)
-        self.assertEqual("23 32 51 55", str(list))
+        list.add(1)
+        list.add(59)
+        self.assertEqual("1 23 32 51 55 59", str(list))
 
 
 
