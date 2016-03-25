@@ -59,4 +59,26 @@ class DoublySortedLinkedList(SortedLinkedList):
             it_node = it_node.next
 
     def remove_recursive(self, value):
-        pass
+        return self.__removeRecursive(self.head, value)
+
+    def __removeRecursive(self, node, value):
+        if node is None:
+            return None
+
+        if node.value == value:
+            if node == self.head:
+                node_to_remove = self.head
+                if self.head.next is not None:
+                    self.head.next.prev = None
+                self.head = self.head.next
+                del node_to_remove
+                self.length -= 1
+            else:
+                node_to_remove = node
+                node.prev.next = node.next
+                if node.next is not None:
+                    node.next.prev = node.prev
+                del node_to_remove
+                self.length -= 1
+            return
+        self.__removeRecursive(node.next, value)
