@@ -1,4 +1,3 @@
-from List import *
 from datastructure.list.SortedLinkedList import SortedLinkedList
 
 

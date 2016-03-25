@@ -1,56 +1,54 @@
-from List import *
+from datastructure.list.List import *
+
 
 class LinkedList(ABCList):
     def add(self, value):
-        newNode = Node(value)
-        if self.head == None:
-            self.head = newNode
+        new_node = Node(value)
+        if self.head is None:
+            self.head = new_node
         else:
-            newNode.next = self.head
-            self.head = newNode
+            new_node.next = self.head
+            self.head = new_node
         self.length += 1
 
-
     def find(self, value):
-        father, node = self.findNode(value)
-        if node == None:
+        father, node = self.find_node(value)
+        if node is None:
             return None
         return node.value
 
+    def find_node(self, value):
+        father_node = None
+        it_node = self.head
+        while True:
+            if it_node is None or value == it_node.value:
+                return father_node, it_node
 
-    def findNode(self, value):
-        fatherNode = None
-        itNode = self.head
-        while (True):
-            if itNode == None or value == itNode.value:
-                return fatherNode, itNode
-
-            if itNode.next == None:
+            if it_node.next is None:
                 return None, None
 
-            fatherNode = itNode
-            itNode = itNode.next
-
+            father_node = it_node
+            it_node = it_node.next
 
     def remove(self, value):
-        father, nodeToRemove = self.findNode(value)
+        father, node_to_remove = self.find_node(value)
 
-        if nodeToRemove == None:
+        if node_to_remove is None:
             return None
 
-        if nodeToRemove == self.head:
-            self.head = nodeToRemove.next
+        if node_to_remove == self.head:
+            self.head = node_to_remove.next
         else:
-            father.next = nodeToRemove.next
+            father.next = node_to_remove.next
 
-        del nodeToRemove
+        del node_to_remove
         self.length -= 1
 
-    def removeRecursive(self, value):
-        return self.__removeRecursive(None, self.head, value);
+    def remove_recursive(self, value):
+        return self.__removeRecursive(None, self.head, value)
 
     def __removeRecursive(self, father, node, value):
-        if node == None:
+        if node is None:
             return None, None
 
         if node.value == value:
@@ -66,43 +64,39 @@ class LinkedList(ABCList):
         father = node
         self.__removeRecursive(father, node.next, value)
 
-    def isEmpty(self):
+    def is_empty(self):
         if self.length == 0:
             return True
         return False
 
-
     def clean(self):
-        if self.head == None:
+        if self.head is None:
             return
 
-        while(self.head != None):
-            nodeToRemove = self.head
+        while self.head is not None:
+            node_to_remove = self.head
             self.head = self.head.next
-            del nodeToRemove
+            del node_to_remove
 
         self.length = 0
 
-    def printRecursive(self):
+    def print_recursive(self):
         return self.__printRecursive(self.head)
 
-
     def __printRecursive(self, node=None):
-        if node == None:
+        if node is None:
             return ""
         result = self.__printRecursive(node.next)
         if result == "":
             return str(node.value)
         else:
-            return str(node.value) +  " " + self.__printRecursive(node.next)
+            return str(node.value) + " " + self.__printRecursive(node.next)
 
-
-    def printReverse(self):
-         return self.__printReverse(self.head)
-
+    def print_reverse(self):
+        return self.__printReverse(self.head)
 
     def __printReverse(self, node=None):
-        if node == None:
+        if node is None:
             return ""
         result = self.__printReverse(node.next)
         if result == "":
@@ -110,34 +104,33 @@ class LinkedList(ABCList):
         else:
             return self.__printReverse(node.next) + " " + str(node.value)
 
-
     def __str__(self):
-        resultString = ""
-        itNode = self.head
-        if itNode != None:
-            resultString += str(itNode.value)
-            while (itNode.next != None):
-                resultString += " " + str(itNode.next.value)
-                itNode = itNode.next
-        return resultString
+        result_string = ""
+        it_node = self.head
+        if it_node is not None:
+            result_string += str(it_node.value)
+            while it_node.next is not None:
+                result_string += " " + str(it_node.next.value)
+                it_node = it_node.next
+        return result_string
 
-    def __eq__(self, list):
-        if list == None:
+    def __eq__(self, other_list):
+        if other_list is None:
             return False
 
-        if self.length != list.length:
+        if self.length != other_list.length:
             return False
 
-        itNode1 = self.head
-        itNode2 = list.head
-        while (itNode1 != None):
-            if itNode1.value != itNode2.value:
+        it_node_1 = self.head
+        it_node_2 = other_list.head
+        while it_node_1 is not None:
+            if it_node_1.value != it_node_2.value:
                 return False
 
-            itNode1 = itNode1.next
-            itNode2 = itNode2.next
+            it_node_1 = it_node_1.next
+            it_node_2 = it_node_2.next
 
         return True
 
-    def __ne__(self, list):
-        return not self.__eq__(list)
+    def __ne__(self, other_list):
+        return not self.__eq__(other_list)

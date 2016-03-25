@@ -1,9 +1,11 @@
 from abc import ABCMeta, abstractmethod
 
+
 class Node:
-	def __init__(self, value=None, next=None):
-		self.value = value
-		self.next = next
+    def __init__(self, value=None, node=None):
+        self.value = value
+        self.next = node
+
 
 class ABCList:
     __metaclass__ = ABCMeta
@@ -25,11 +27,11 @@ class ABCList:
         pass
 
     @abstractmethod
-    def removeRecursive(self, value):
+    def remove_recursive(self, value):
         pass
 
     @abstractmethod
-    def isEmpty(self):
+    def is_empty(self):
         pass
 
     @abstractmethod
@@ -37,22 +39,21 @@ class ABCList:
         pass
 
     @abstractmethod
-    def printRecursive(self, node):
+    def print_recursive(self):
         pass
 
     @abstractmethod
-    def printReverse(self, node):
+    def print_reverse(self):
         pass
 
-	@abstractmethod
-	def __str__(self):
-			pass
+    @abstractmethod
+    def __str__(self):
+        pass
 
     @abstractmethod
-    def __eq__(self, list):
-			pass
+    def __eq__(self, other_list):
+        pass
 
     @abstractmethod
-    def __ne__(self, list):
-			pass
-
+    def __ne__(self, other_list):
+        pass

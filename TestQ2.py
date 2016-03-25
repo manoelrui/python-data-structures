@@ -1,166 +1,157 @@
 import unittest
 from datastructure.list.SortedLinkedList import SortedLinkedList
 
+
 class TestQ2(unittest.TestCase):
-
-#1. Criar uma lista vazia;
+    # 1. Criar uma lista vazia;
     def test_creation(self):
-        list = SortedLinkedList()
-        self.assertIsNotNone(list)
-        self.assertIsNone(list.head)
-        self.assertEqual(list.length, 0)
+        l = SortedLinkedList()
+        self.assertIsNotNone(l)
+        self.assertIsNone(l.head)
+        self.assertEqual(l.length, 0)
 
-
-#2. Inserir elemento no inicio;
+    # 2. Inserir elemento no inicio;
     def test_insertion(self):
-        list = SortedLinkedList()
-        list.add(56)
-        self.assertEqual(list.length, 1)
+        l = SortedLinkedList()
+        l.add(56)
+        self.assertEqual(l.length, 1)
 
-        list.add(342)
-        self.assertEqual(list.length, 2)
+        l.add(342)
+        self.assertEqual(l.length, 2)
 
-        list.add(70)
-        self.assertEqual(list.length, 3)
+        l.add(70)
+        self.assertEqual(l.length, 3)
 
-        list.add(60)
-        self.assertEqual(list.length, 4)
+        l.add(60)
+        self.assertEqual(l.length, 4)
 
-
-#3. Imprimir os valores armazenados na lista;
+    # 3. Imprimir os valores armazenados na lista;
     def test_print(self):
-        list = SortedLinkedList()
-        self.assertEqual("", str(list))
+        l = SortedLinkedList()
+        self.assertEqual("", str(l))
 
-        list.add(51)
-        self.assertEqual("51", str(list))
+        l.add(51)
+        self.assertEqual("51", str(l))
 
-        list.add(23)
-        list.add(32)
-        list.add(55)
-        list.add(1)
-        list.add(59)
-        self.assertEqual("1 23 32 51 55 59", str(list))
+        l.add(23)
+        l.add(32)
+        l.add(55)
+        l.add(1)
+        l.add(59)
+        self.assertEqual("1 23 32 51 55 59", str(l))
 
-
-
-#4 Imprimir os valores armazenados na lista usando recursao;
+    # 4 Imprimir os valores armazenados na lista usando recursao;
     def test_recursive_print(self):
-        list = SortedLinkedList()
-        self.assertEqual("", list.printRecursive())
+        l = SortedLinkedList()
+        self.assertEqual("", l.print_recursive())
 
-        list.add(984)
-        self.assertEqual("984", list.printRecursive())
+        l.add(984)
+        self.assertEqual("984", l.print_recursive())
 
-        list.add(3)
-        list.add(78)
-        list.add(1000)
-        self.assertEqual("3 78 984 1000", list.printRecursive())
+        l.add(3)
+        l.add(78)
+        l.add(1000)
+        self.assertEqual("3 78 984 1000", l.print_recursive())
 
-
-#5.Imprimir os valores armazenados na lista em ordem reversa (da cauda para a cabeca da lista);
+    # 5.Imprimir os valores armazenados na lista em ordem reversa (da cauda para a cabeca da lista);
     def test_print_reverse(self):
-        list = SortedLinkedList()
-        self.assertEqual("", list.printReverse())
+        l = SortedLinkedList()
+        self.assertEqual("", l.print_reverse())
 
-        list.add(234)
-        self.assertEqual("234", list.printReverse())
+        l.add(234)
+        self.assertEqual("234", l.print_reverse())
 
-        list.add(33)
-        list.add(89)
-        list.add(670)
-        self.assertEqual("670 234 89 33", list.printReverse())
+        l.add(33)
+        l.add(89)
+        l.add(670)
+        self.assertEqual("670 234 89 33", l.print_reverse())
 
-
-#6.Verificar se a lista esta vazia (retorna 1 se vazia ou 0 se nao vazia);
+    # 6.Verificar se a lista esta vazia (retorna 1 se vazia ou 0 se nao vazia);
     def test_is_empty(self):
-        list = SortedLinkedList()
-        self.assertTrue(list.isEmpty())
+        l = SortedLinkedList()
+        self.assertTrue(l.is_empty())
 
-        list.add(45)
-        self.assertFalse(list.isEmpty())
+        l.add(45)
+        self.assertFalse(l.is_empty())
 
-
-#7.Recuperar/Buscar um determinado elemento da lista;
+    # 7.Recuperar/Buscar um determinado elemento da lista;
     def test_find(self):
-        list = SortedLinkedList()
-        self.assertIsNone(list.find(578))
+        l = SortedLinkedList()
+        self.assertIsNone(l.find(578))
 
-        list.add(34)
-        list.add(77)
-        list.add(4)
-        list.add(6)
-        self.assertEquals(4, list.find(4))
-        self.assertEquals(77, list.find(77))
-        self.assertEquals(34, list.find(34))
-        self.assertIsNone(list.find(666))
+        l.add(34)
+        l.add(77)
+        l.add(4)
+        l.add(6)
+        self.assertEquals(4, l.find(4))
+        self.assertEquals(77, l.find(77))
+        self.assertEquals(34, l.find(34))
+        self.assertIsNone(l.find(666))
 
-#.8 Remover um determinado elemento da lista;
+    # .8 Remover um determinado elemento da lista;
     def test_remove(self):
-        list = SortedLinkedList()
-        self.assertIsNone(list.remove(78))
+        l = SortedLinkedList()
+        self.assertIsNone(l.remove(78))
 
-        list.add(34)
-        list.add(3)
-        list.add(78)
-        list.add(55)
-        list.add(60)
+        l.add(34)
+        l.add(3)
+        l.add(78)
+        l.add(55)
+        l.add(60)
 
-        list.remove(3)
-        self.assertEqual(list.length, 4)
+        l.remove(3)
+        self.assertEqual(l.length, 4)
 
-        list.remove(60)
-        self.assertEqual(list.length, 3)
+        l.remove(60)
+        self.assertEqual(l.length, 3)
 
-        list.remove(78)
-        self.assertEqual(list.length, 2)
+        l.remove(78)
+        self.assertEqual(l.length, 2)
 
-        self.assertIsNone(list.remove(234))
-        self.assertEqual(list.length, 2)
+        self.assertIsNone(l.remove(234))
+        self.assertEqual(l.length, 2)
 
-
-#9.Remover um determinado elemento da lista usando recursao;
+    # 9.Remover um determinado elemento da lista usando recursao;
     def test_remove_recursion(self):
-        list = SortedLinkedList()
-        self.assertIsNone(list.remove(78))
+        l = SortedLinkedList()
+        self.assertIsNone(l.remove(78))
 
-        list.add(34)
-        list.add(3)
-        list.add(78)
-        list.add(55)
-        list.add(60)
+        l.add(34)
+        l.add(3)
+        l.add(78)
+        l.add(55)
+        l.add(60)
 
-        list.remove(3)
-        self.assertEqual(list.length, 4)
+        l.remove(3)
+        self.assertEqual(l.length, 4)
 
-        list.remove(60)
-        self.assertEqual(list.length, 3)
+        l.remove(60)
+        self.assertEqual(l.length, 3)
 
-        list.remove(78)
-        self.assertEqual(list.length, 2)
+        l.remove(78)
+        self.assertEqual(l.length, 2)
 
-        self.assertIsNone(list.remove(234))
-        self.assertEqual(list.length, 2)
+        self.assertIsNone(l.remove(234))
+        self.assertEqual(l.length, 2)
 
-
-#10. Liberar a lista;
+    # 10. Liberar a lista;
     def test_list_clean(self):
-        list = SortedLinkedList()
-        self.assertEqual(list.length, 0)
-        self.assertIsNone(list.head)
+        l = SortedLinkedList()
+        self.assertEqual(l.length, 0)
+        self.assertIsNone(l.head)
 
-        list.add(45)
-        list.add(33)
-        list.add(450)
-        list.clean()
-        self.assertEqual(list.length, 0)
-        self.assertIsNone(list.head)
+        l.add(45)
+        l.add(33)
+        l.add(450)
+        l.clean()
+        self.assertEqual(l.length, 0)
+        self.assertIsNone(l.head)
 
-        list.clean()
-        self.assertEqual(list.length, 0)
-        self.assertIsNone(list.head)
+        l.clean()
+        self.assertEqual(l.length, 0)
+        self.assertIsNone(l.head)
 
-#11 Verificar se duas lista sao iguais
+    # 11 Verificar se duas lista sao iguais
     def test_compare_lists(self):
         list1 = SortedLinkedList()
         list2 = SortedLinkedList()
@@ -186,6 +177,7 @@ class TestQ2(unittest.TestCase):
         self.assertFalse(list1 == list2)
         self.assertTrue(list1 != list2)
         self.assertEqual(list2.length, list1.length)
+
 
 if __name__ == '__main__':
     unittest.main()
