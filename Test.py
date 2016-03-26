@@ -1,18 +1,23 @@
-from datastructure.list.DoublySortedLinkedList import *
-import Graphic as graph
-from datastructure.list.CircularDoublyLinkedList import *
+from application.BankAccount import *
 
+m = AccountManager()
+m.add(BankAccount(123, -32))
+m.add(SavingAccount(456, 55))
+m.add(LoyaltyAccount(789, 99))
+m.add(BankAccount(131415, 776))
 
-l = CircularDoublyLinkedList()
-l.add(34)
-l.add(3)
-l.add(78)
-l.add(55)
-l.add(60)
-l.add(70)
-l.add(66)
+print m
 
-print l
+# l = CircularDoublyLinkedList()
+# l.add(34)
+# l.add(3)
+# l.add(78)
+# l.add(55)
+# l.add(60)
+# l.add(70)
+# l.add(66)
+#
+# print l
 
 #l.remove_recursive(56)
 #l.remove_recursive(64)
