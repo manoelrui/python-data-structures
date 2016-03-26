@@ -11,11 +11,10 @@ class CircularLinkedList(LinkedList):
         if self.head is None:
             self.head = new_node
             self.tail = new_node
-            self.tail.next = self.head
         else:
             new_node.next = self.head
             self.head = new_node
-            self.tail.next = self.head
+        self.tail.next = self.head
         self.length += 1
 
     def find(self, value):
