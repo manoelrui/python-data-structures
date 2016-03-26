@@ -1,21 +1,26 @@
 from datastructure.list.DoublySortedLinkedList import *
 import Graphic as graph
-from datastructure.list.LinkedList import LinkedList
+from datastructure.list.CircularDoublyLinkedList import *
 
-l = DoublySortedLinkedList()
-l.add(56)
-l.add(45)
+
+l = CircularDoublyLinkedList()
+l.add(34)
 l.add(3)
-l.add(656)
-l.add(64)
+l.add(78)
+l.add(55)
+l.add(60)
+l.add(70)
+l.add(66)
 
-l.remove(656)
-l.remove(64)
-l.remove(3)
-
-g = graph.Graphic(l)
-g.find(80)
-
-print 'Length of l: ', l.length
 print l
-l.clean()
+
+#l.remove_recursive(56)
+#l.remove_recursive(64)
+
+#g = graph.Graphic(l)
+#g.show()
+#g.find(80)
+
+#print 'Length of l: ', l.length
+#print l
+#l.clean()

@@ -1,8 +1,7 @@
-from test.list.TestQ1 import *
-from test.list.TestQ2 import *
-from test.list.TestQ4 import *
-from test.list.TestQ5 import *
-
+from test.datastructure.list.TestQ1 import *
+from test.datastructure.list.TestQ2 import *
+from test.datastructure.list.TestQ4 import *
+from test.datastructure.list.TestQ5 import *
 from test.datastructure.list.TestQ3 import *
 
 if __name__ == '__main__':
