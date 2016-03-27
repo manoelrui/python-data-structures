@@ -174,7 +174,7 @@ class TestQ5(unittest.TestCase):
     # 9.Remover um determinado elemento da lista usando recursao;
     def test_remove_recursion(self):
         l = CircularDoublyLinkedList()
-        l.remove(78)
+        l.remove_recursive(78)
         self.assertEqual("", str(l))
 
         l.add(34)

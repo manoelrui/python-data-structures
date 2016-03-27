@@ -211,6 +211,8 @@ class TestQ2(unittest.TestCase):
     def test_compare_lists(self):
         list1 = SortedLinkedList()
         list2 = SortedLinkedList()
+        self.assertFalse(list1 == None)
+        self.assertFalse(list2 == None)
 
         self.assertTrue(list1 == list2)
         self.assertFalse(list1 != list2)

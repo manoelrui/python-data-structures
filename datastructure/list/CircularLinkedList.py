@@ -83,7 +83,7 @@ class CircularLinkedList(LinkedList):
         if self.head is None:
             return
 
-        while self.head is not self.tail.next:
+        while self.head is not self.tail:
             node_to_remove = self.head
             self.head = self.head.next
             del node_to_remove
@@ -101,11 +101,7 @@ class CircularLinkedList(LinkedList):
     def __printRecursive(self, node=None):
         if node is self.tail:
             return str(node.value)
-        result = self.__printRecursive(node.next)
-        if result == "":
-            return str(node.value)
-        else:
-            return str(node.value) + " " + self.__printRecursive(node.next)
+        return str(node.value) + " " + self.__printRecursive(node.next)
 
     def print_reverse(self):
         if self.head == None:
@@ -115,11 +111,7 @@ class CircularLinkedList(LinkedList):
     def __printReverse(self, node=None):
         if node is self.tail:
             return str(node.value)
-        result = self.__printReverse(node.next)
-        if result == "":
-            return str(node.value)
-        else:
-            return self.__printReverse(node.next) + " " + str(node.value)
+        return self.__printReverse(node.next) + " " + str(node.value)
 
     def __str__(self):
         result_string = ""

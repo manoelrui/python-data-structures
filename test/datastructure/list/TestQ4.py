@@ -61,10 +61,10 @@ class TestQ4(unittest.TestCase):
     # 5.Imprimir os valores armazenados na lista em ordem reversa (da cauda para a cabeca da lista);
     def test_print_reverse(self):
         l = CircularLinkedList()
-        self.assertEqual("", l.print_recursive())
+        self.assertEqual("", l.print_reverse())
 
         l.add(13)
-        self.assertEqual("13", l.print_recursive())
+        self.assertEqual("13", l.print_reverse())
 
         l.add(76)
         l.add(2)
