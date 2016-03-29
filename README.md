@@ -32,7 +32,7 @@ Finalmente, para instalar os binários execute:
 
     sudo apt-get install graphviz
     
-## Código testes
+## Código exemplo
 
 No módulo 'graphic' existe uma classe responsável por exibir as estruturas de dados implementadas no módulo 'datastructure'. O código abaixo é um exemplo de como instanciar uma lista encadeada e passar para um objeto do tipo 'Graphic' a responsabilidade gerar uma imagem do tipo 'png' localizadas no diretório 'images'.
 
