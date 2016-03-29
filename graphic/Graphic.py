@@ -5,6 +5,8 @@ from graphviz import Digraph
 class Graphic:
     def __init__(self, data_structure=None):
         self.data_structure = data_structure
+        self.output_format = "png"
+        self.output_dir = "images"
 
     def show(self):
         if isinstance(self.data_structure, LinkedList.__base__):
@@ -15,7 +17,7 @@ class Graphic:
             self.__find_linked_list(value)
 
     def __show_linked_list(self):
-        g = Digraph('G', filename='LinkedList')
+        g = Digraph('G', filename=self.output_dir + '/' + 'LinkedList', format=self.output_format)
         g.body.extend(['rankdir=LR'])
 
         it_node = self.data_structure.head
@@ -36,7 +38,7 @@ class Graphic:
         g.view()
 
     def __find_linked_list(self, value):
-        g = Digraph('G', filename='LinkedList')
+        g = Digraph('G', filename=self.output_dir + '/' + 'LinkedList', format=self.output_format)
         g.body.extend(['rankdir=LR'])
 
         it_node = self.data_structure.head
