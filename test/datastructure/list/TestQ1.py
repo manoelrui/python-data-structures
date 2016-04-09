@@ -8,28 +8,28 @@ class TestQ1(unittest.TestCase):
         l = LinkedList()
         self.assertIsNotNone(l)
         self.assertIsNone(l.head)
-        self.assertEqual(l.length, 0)
+        self.assertEqual(len(l), 0)
 
     # 2. Inserir elemento no inicio;
     def test_insertion(self):
         l = LinkedList()
-        self.assertEqual(l.length, 0)
+        self.assertEqual(len(l), 0)
         self.assertEqual("", str(l))
 
         l.add(56)
-        self.assertEqual(l.length, 1)
+        self.assertEqual(len(l), 1)
         self.assertEqual("56", str(l))
 
         l.add(342)
-        self.assertEqual(l.length, 2)
+        self.assertEqual(len(l), 2)
         self.assertEqual("342 56", str(l))
 
         l.add(70)
-        self.assertEqual(l.length, 3)
+        self.assertEqual(len(l), 3)
         self.assertEqual("70 342 56", str(l))
 
         l.add(60)
-        self.assertEqual(l.length, 4)
+        self.assertEqual(len(l), 4)
         self.assertEqual("60 70 342 56", str(l))
 
     # 3. Imprimir os valores armazenados na lista;
@@ -108,31 +108,31 @@ class TestQ1(unittest.TestCase):
         l.add(66)
 
         self.assertTrue(l.remove(66))
-        self.assertEqual(l.length, 6)
+        self.assertEqual(len(l), 6)
         self.assertEqual("70 60 55 78 3 34", str(l))
 
         self.assertTrue(l.remove(34))
-        self.assertEqual(l.length, 5)
+        self.assertEqual(len(l), 5)
         self.assertEqual("70 60 55 78 3", str(l))
 
         self.assertTrue(l.remove(60))
-        self.assertEqual(l.length, 4)
+        self.assertEqual(len(l), 4)
         self.assertEqual("70 55 78 3", str(l))
 
         self.assertTrue(l.remove(70))
-        self.assertEqual(l.length, 3)
+        self.assertEqual(len(l), 3)
         self.assertEqual("55 78 3", str(l))
 
         self.assertTrue(l.remove(3))
-        self.assertEqual(l.length, 2)
+        self.assertEqual(len(l), 2)
         self.assertEqual("55 78", str(l))
 
         self.assertTrue(l.remove(55))
-        self.assertEqual(l.length, 1)
+        self.assertEqual(len(l), 1)
         self.assertEqual("78", str(l))
 
         self.assertTrue(l.remove(3454) == False)
-        self.assertEqual(l.length, 1)
+        self.assertEqual(len(l), 1)
         self.assertEqual("78", str(l))
 
 
@@ -151,48 +151,48 @@ class TestQ1(unittest.TestCase):
         l.add(66)
 
         self.assertTrue(l.remove_recursive(66))
-        self.assertEqual(l.length, 6)
+        self.assertEqual(len(l), 6)
         self.assertEqual("70 60 55 78 3 34", str(l))
 
         self.assertTrue(l.remove_recursive(34))
-        self.assertEqual(l.length, 5)
+        self.assertEqual(len(l), 5)
         self.assertEqual("70 60 55 78 3", str(l))
 
         self.assertTrue(l.remove_recursive(60))
-        self.assertEqual(l.length, 4)
+        self.assertEqual(len(l), 4)
         self.assertEqual("70 55 78 3", str(l))
 
         self.assertTrue(l.remove_recursive(70))
-        self.assertEqual(l.length, 3)
+        self.assertEqual(len(l), 3)
         self.assertEqual("55 78 3", str(l))
 
         self.assertTrue(l.remove_recursive(3))
-        self.assertEqual(l.length, 2)
+        self.assertEqual(len(l), 2)
         self.assertEqual("55 78", str(l))
 
         self.assertTrue(l.remove_recursive(55))
-        self.assertEqual(l.length, 1)
+        self.assertEqual(len(l), 1)
         self.assertEqual("78", str(l))
 
         self.assertTrue(l.remove_recursive(3454) == False)
-        self.assertEqual(l.length, 1)
+        self.assertEqual(len(l), 1)
         self.assertEqual("78", str(l))
 
     # 10. Liberar a lista;
     def test_list_clean(self):
         l = LinkedList()
-        self.assertEqual(l.length, 0)
+        self.assertEqual(len(l), 0)
         self.assertIsNone(l.head)
 
         l.add(5)
         l.add(34)
         l.add(980)
         l.clean()
-        self.assertEqual(l.length, 0)
+        self.assertEqual(len(l), 0)
         self.assertIsNone(l.head)
 
         l.clean()
-        self.assertEqual(l.length, 0)
+        self.assertEqual(len(l), 0)
         self.assertIsNone(l.head)
 
 

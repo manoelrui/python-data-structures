@@ -136,3 +136,6 @@ class LinkedList(ABCList):
 
     def __ne__(self, other_list):
         return not self.__eq__(other_list)
+
+    def __len__(self):
+        return self.length

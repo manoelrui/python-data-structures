@@ -8,39 +8,39 @@ class TestQ2(unittest.TestCase):
         l = SortedLinkedList()
         self.assertIsNotNone(l)
         self.assertIsNone(l.head)
-        self.assertEqual(l.length, 0)
+        self.assertEqual(len(l), 0)
 
     # 2. Inserir elemento no inicio;
     def test_insertion(self):
         l = SortedLinkedList()
-        self.assertEqual(l.length, 0)
+        self.assertEqual(len(l), 0)
         self.assertEqual("", str(l))
 
         l.add(56)
-        self.assertEqual(l.length, 1)
+        self.assertEqual(len(l), 1)
         self.assertEqual("56", str(l))
 
         l.add(342)
-        self.assertEqual(l.length, 2)
+        self.assertEqual(len(l), 2)
         self.assertEqual("56 342", str(l))
 
         l.add(70)
-        self.assertEqual(l.length, 3)
+        self.assertEqual(len(l), 3)
         self.assertEqual("56 70 342", str(l))
 
         l.add(30)
         l.add(35)
-        self.assertEqual(l.length, 5)
+        self.assertEqual(len(l), 5)
         self.assertEqual("30 35 56 70 342", str(l))
 
         l.add(400)
         l.add(420)
-        self.assertEqual(l.length, 7)
+        self.assertEqual(len(l), 7)
         self.assertEqual("30 35 56 70 342 400 420", str(l))
 
         l.add(60)
         l.add(64)
-        self.assertEqual(l.length, 9)
+        self.assertEqual(len(l), 9)
         self.assertEqual("30 35 56 60 64 70 342 400 420", str(l))
 
     # 3. Imprimir os valores armazenados na lista;
@@ -121,31 +121,31 @@ class TestQ2(unittest.TestCase):
         l.add(66)
 
         self.assertTrue(l.remove(3) == True)
-        self.assertEqual(l.length, 6)
+        self.assertEqual(len(l), 6)
         self.assertEqual("34 55 60 66 70 78", str(l))
 
         self.assertTrue(l.remove(60) == True)
-        self.assertEqual(l.length, 5)
+        self.assertEqual(len(l), 5)
         self.assertEqual("34 55 66 70 78", str(l))
 
         self.assertTrue(l.remove(78) == True)
-        self.assertEqual(l.length, 4)
+        self.assertEqual(len(l), 4)
         self.assertEqual("34 55 66 70", str(l))
 
         self.assertTrue(l.remove(70) == True)
-        self.assertEqual(l.length, 3)
+        self.assertEqual(len(l), 3)
         self.assertEqual("34 55 66", str(l))
 
         self.assertTrue(l.remove(34) == True)
-        self.assertEqual(l.length, 2)
+        self.assertEqual(len(l), 2)
         self.assertEqual("55 66", str(l))
 
         self.assertTrue(l.remove(55) == True)
-        self.assertEqual(l.length, 1)
+        self.assertEqual(len(l), 1)
         self.assertEqual("66", str(l))
 
         self.assertTrue(l.remove(3454) == False)
-        self.assertEqual(l.length, 1)
+        self.assertEqual(len(l), 1)
         self.assertEqual("66", str(l))
 
     # 9.Remover um determinado elemento da lista usando recursao;
@@ -163,48 +163,48 @@ class TestQ2(unittest.TestCase):
         l.add(66)
 
         self.assertTrue(l.remove_recursive(3) == True)
-        self.assertEqual(l.length, 6)
+        self.assertEqual(len(l), 6)
         self.assertEqual("34 55 60 66 70 78", str(l))
 
         self.assertTrue(l.remove_recursive(60) == True)
-        self.assertEqual(l.length, 5)
+        self.assertEqual(len(l), 5)
         self.assertEqual("34 55 66 70 78", str(l))
 
         self.assertTrue(l.remove_recursive(78) == True)
-        self.assertEqual(l.length, 4)
+        self.assertEqual(len(l), 4)
         self.assertEqual("34 55 66 70", str(l))
 
         self.assertTrue(l.remove_recursive(70) == True)
-        self.assertEqual(l.length, 3)
+        self.assertEqual(len(l), 3)
         self.assertEqual("34 55 66", str(l))
 
         self.assertTrue(l.remove_recursive(34) == True)
-        self.assertEqual(l.length, 2)
+        self.assertEqual(len(l), 2)
         self.assertEqual("55 66", str(l))
 
         self.assertTrue(l.remove_recursive(55) == True)
-        self.assertEqual(l.length, 1)
+        self.assertEqual(len(l), 1)
         self.assertEqual("66", str(l))
 
         self.assertTrue(l.remove_recursive(3454) == False)
-        self.assertEqual(l.length, 1)
+        self.assertEqual(len(l), 1)
         self.assertEqual("66", str(l))
 
     # 10. Liberar a lista;
     def test_list_clean(self):
         l = SortedLinkedList()
-        self.assertEqual(l.length, 0)
+        self.assertEqual(len(l), 0)
         self.assertIsNone(l.head)
 
         l.add(45)
         l.add(33)
         l.add(450)
         l.clean()
-        self.assertEqual(l.length, 0)
+        self.assertEqual(len(l), 0)
         self.assertIsNone(l.head)
 
         l.clean()
-        self.assertEqual(l.length, 0)
+        self.assertEqual(len(l), 0)
         self.assertIsNone(l.head)
 
     # 11 Verificar se duas lista sao iguais
