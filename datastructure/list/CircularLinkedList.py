@@ -40,7 +40,7 @@ class CircularLinkedList(LinkedList):
         father, node_to_remove = self.find_node(value)
 
         if node_to_remove is None:
-            return None
+            return False
 
         if node_to_remove == self.head:
             self.head = node_to_remove.next
@@ -52,13 +52,14 @@ class CircularLinkedList(LinkedList):
         self.tail.next = self.head
         del node_to_remove
         self.length -= 1
+        return True
 
     def remove_recursive(self, value):
         return self.__removeRecursive(None, self.head, value)
 
     def __removeRecursive(self, father, node, value):
         if node is None:
-            return
+            return False
 
         if node.value == value:
             if node == self.head:
@@ -71,13 +72,13 @@ class CircularLinkedList(LinkedList):
             self.tail.next = self.head
             del node
             self.length -= 1
-            return
+            return True
 
         if node is self.tail:
-            return
+            return False
 
         father = node
-        self.__removeRecursive(father, node.next, value)
+        return self.__removeRecursive(father, node.next, value)
 
     def clean(self):
         if self.head is None:

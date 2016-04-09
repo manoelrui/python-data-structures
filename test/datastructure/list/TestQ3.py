@@ -109,7 +109,7 @@ class TestQ3(unittest.TestCase):
     # .8 Remover um determinado elemento da lista;
     def test_remove(self):
         l = DoublySortedLinkedList()
-        l.remove(78)
+        self.assertTrue(l.remove(78) == False)
         self.assertEqual("", str(l))
 
         l.add(34)
@@ -120,38 +120,38 @@ class TestQ3(unittest.TestCase):
         l.add(70)
         l.add(66)
 
-        l.remove(3)
+        self.assertTrue(l.remove(3) == True)
         self.assertEqual(l.length, 6)
         self.assertEqual("34 55 60 66 70 78", str(l))
 
-        l.remove(60)
+        self.assertTrue(l.remove(60) == True)
         self.assertEqual(l.length, 5)
         self.assertEqual("34 55 66 70 78", str(l))
 
-        l.remove(78)
+        self.assertTrue(l.remove(78) == True)
         self.assertEqual(l.length, 4)
         self.assertEqual("34 55 66 70", str(l))
 
-        l.remove(70)
+        self.assertTrue(l.remove(70) == True)
         self.assertEqual(l.length, 3)
         self.assertEqual("34 55 66", str(l))
 
-        l.remove(34)
+        self.assertTrue(l.remove(34) == True)
         self.assertEqual(l.length, 2)
         self.assertEqual("55 66", str(l))
 
-        l.remove(55)
+        self.assertTrue(l.remove(55) == True)
         self.assertEqual(l.length, 1)
         self.assertEqual("66", str(l))
 
-        l.remove(3454)
+        self.assertTrue(l.remove(3454) == False)
         self.assertEqual(l.length, 1)
         self.assertEqual("66", str(l))
 
     # 9.Remover um determinado elemento da lista usando recursao;
     def test_remove_recursion(self):
         l = DoublySortedLinkedList()
-        l.remove_recursive(78)
+        self.assertTrue(l.remove_recursive(78) == False)
         self.assertEqual("", str(l))
 
         l.add(34)
@@ -162,31 +162,31 @@ class TestQ3(unittest.TestCase):
         l.add(70)
         l.add(66)
 
-        l.remove_recursive(3)
+        self.assertTrue(l.remove_recursive(3) == True)
         self.assertEqual(l.length, 6)
         self.assertEqual("34 55 60 66 70 78", str(l))
 
-        l.remove_recursive(60)
+        self.assertTrue(l.remove_recursive(60) == True)
         self.assertEqual(l.length, 5)
         self.assertEqual("34 55 66 70 78", str(l))
 
-        l.remove_recursive(78)
+        self.assertTrue(l.remove_recursive(78) == True)
         self.assertEqual(l.length, 4)
         self.assertEqual("34 55 66 70", str(l))
 
-        l.remove_recursive(70)
+        self.assertTrue(l.remove_recursive(70) == True)
         self.assertEqual(l.length, 3)
         self.assertEqual("34 55 66", str(l))
 
-        l.remove_recursive(34)
+        self.assertTrue(l.remove_recursive(34) == True)
         self.assertEqual(l.length, 2)
         self.assertEqual("55 66", str(l))
 
-        l.remove_recursive(55)
+        self.assertTrue(l.remove_recursive(55) == True)
         self.assertEqual(l.length, 1)
         self.assertEqual("66", str(l))
 
-        l.remove_recursive(3454)
+        self.assertTrue(l.remove_recursive(3454) == False)
         self.assertEqual(l.length, 1)
         self.assertEqual("66", str(l))
 

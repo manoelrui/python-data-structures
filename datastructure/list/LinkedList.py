@@ -34,7 +34,7 @@ class LinkedList(ABCList):
         father, node_to_remove = self.find_node(value)
 
         if node_to_remove is None:
-            return None
+            return False
 
         if node_to_remove == self.head:
             self.head = node_to_remove.next
@@ -43,13 +43,14 @@ class LinkedList(ABCList):
 
         del node_to_remove
         self.length -= 1
+        return True
 
     def remove_recursive(self, value):
-        return self.__removeRecursive(None, self.head, value)
+        return self.__remove_recursive(None, self.head, value)
 
-    def __removeRecursive(self, father, node, value):
+    def __remove_recursive(self, father, node, value):
         if node is None:
-            return None, None
+            return False
 
         if node.value == value:
             if node == self.head:
@@ -59,10 +60,11 @@ class LinkedList(ABCList):
 
             del node
             self.length -= 1
-            return
+            return True
 
         father = node
-        self.__removeRecursive(father, node.next, value)
+        return self.__remove_recursive(father, node.next, value)
+
 
     def is_empty(self):
         if self.length == 0:

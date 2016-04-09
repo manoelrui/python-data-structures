@@ -110,7 +110,7 @@ class TestQ5(unittest.TestCase):
     # .8 Remover um determinado elemento da lista;
     def test_remove(self):
         l = CircularDoublyLinkedList()
-        l.remove(78)
+        self.assertTrue(l.remove(78) == False)
         self.assertEqual("", str(l))
 
         l.add(34)
@@ -121,7 +121,7 @@ class TestQ5(unittest.TestCase):
         l.add(70)
         l.add(66)
 
-        l.remove(66)
+        self.assertTrue(l.remove(66) == True)
         self.assertEqual(l.length, 6)
         self.assertEqual("70 60 55 78 3 34", str(l))
         self.assertTrue(l.head.prev is l.tail)
@@ -129,7 +129,7 @@ class TestQ5(unittest.TestCase):
         self.assertTrue(l.tail.prev.next is l.tail)
         self.assertTrue(l.tail.next is l.head)
 
-        l.remove(34)
+        self.assertTrue(l.remove(34) == True)
         self.assertEqual(l.length, 5)
         self.assertEqual("70 60 55 78 3", str(l))
         self.assertTrue(l.head.prev is l.tail)
@@ -137,11 +137,11 @@ class TestQ5(unittest.TestCase):
         self.assertTrue(l.tail.prev.next is l.tail)
         self.assertTrue(l.tail.next is l.head)
 
-        l.remove(60)
+        self.assertTrue(l.remove(60) == True)
         self.assertEqual(l.length, 4)
         self.assertEqual("70 55 78 3", str(l))
 
-        l.remove(70)
+        self.assertTrue(l.remove(70) == True)
         self.assertEqual(l.length, 3)
         self.assertEqual("55 78 3", str(l))
         self.assertTrue(l.head.next is l.tail.prev)
@@ -150,7 +150,7 @@ class TestQ5(unittest.TestCase):
         self.assertTrue(l.head.next.prev is l.head)
         self.assertTrue(l.tail.prev.next is l.tail)
 
-        l.remove(3)
+        self.assertTrue(l.remove(3) == True)
         self.assertEqual(l.length, 2)
         self.assertEqual("55 78", str(l))
         self.assertTrue(l.head.next is l.tail)
@@ -158,7 +158,7 @@ class TestQ5(unittest.TestCase):
         self.assertTrue(l.head.prev is l.tail)
         self.assertTrue(l.head is l.tail.next)
 
-        l.remove(55)
+        self.assertTrue(l.remove(55) == True)
         self.assertEqual(l.length, 1)
         self.assertEqual("78", str(l))
         self.assertTrue(l.head.next is l.tail.next)
@@ -167,14 +167,14 @@ class TestQ5(unittest.TestCase):
         self.assertTrue(l.head is l.tail.next)
         self.assertTrue(l.head is l.tail)
 
-        l.remove(3454)
+        self.assertTrue(l.remove(3454) == False)
         self.assertEqual(l.length, 1)
         self.assertEqual("78", str(l))
 
     # 9.Remover um determinado elemento da lista usando recursao;
     def test_remove_recursion(self):
         l = CircularDoublyLinkedList()
-        l.remove_recursive(78)
+        self.assertTrue(l.remove_recursive(78) == False)
         self.assertEqual("", str(l))
 
         l.add(34)
@@ -185,7 +185,7 @@ class TestQ5(unittest.TestCase):
         l.add(70)
         l.add(66)
 
-        l.remove_recursive(66)
+        self.assertTrue(l.remove_recursive(66) == True)
         self.assertEqual(l.length, 6)
         self.assertEqual("70 60 55 78 3 34", str(l))
         self.assertTrue(l.head.prev is l.tail)
@@ -193,7 +193,7 @@ class TestQ5(unittest.TestCase):
         self.assertTrue(l.tail.prev.next is l.tail)
         self.assertTrue(l.tail.next is l.head)
 
-        l.remove_recursive(34)
+        self.assertTrue(l.remove_recursive(34) == True)
         self.assertEqual(l.length, 5)
         self.assertEqual("70 60 55 78 3", str(l))
         self.assertTrue(l.head.prev is l.tail)
@@ -201,11 +201,11 @@ class TestQ5(unittest.TestCase):
         self.assertTrue(l.tail.prev.next is l.tail)
         self.assertTrue(l.tail.next is l.head)
 
-        l.remove_recursive(60)
+        self.assertTrue(l.remove_recursive(60) == True)
         self.assertEqual(l.length, 4)
         self.assertEqual("70 55 78 3", str(l))
 
-        l.remove_recursive(70)
+        self.assertTrue(l.remove_recursive(70) == True)
         self.assertEqual(l.length, 3)
         self.assertEqual("55 78 3", str(l))
         self.assertTrue(l.head.next is l.tail.prev)
@@ -214,7 +214,7 @@ class TestQ5(unittest.TestCase):
         self.assertTrue(l.head.next.prev is l.head)
         self.assertTrue(l.tail.prev.next is l.tail)
 
-        l.remove_recursive(3)
+        self.assertTrue(l.remove_recursive(3) == True)
         self.assertEqual(l.length, 2)
         self.assertEqual("55 78", str(l))
         self.assertTrue(l.head.next is l.tail)
@@ -222,7 +222,7 @@ class TestQ5(unittest.TestCase):
         self.assertTrue(l.head.prev is l.tail)
         self.assertTrue(l.head is l.tail.next)
 
-        l.remove_recursive(55)
+        self.assertTrue(l.remove_recursive(55) == True)
         self.assertEqual(l.length, 1)
         self.assertEqual("78", str(l))
         self.assertTrue(l.head.next is l.tail.next)
@@ -231,7 +231,7 @@ class TestQ5(unittest.TestCase):
         self.assertTrue(l.head is l.tail.next)
         self.assertTrue(l.head is l.tail)
 
-        l.remove_recursive(3454)
+        self.assertTrue(l.remove_recursive(3454) == False)
         self.assertEqual(l.length, 1)
         self.assertEqual("78", str(l))
 
