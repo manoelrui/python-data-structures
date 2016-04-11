@@ -28,8 +28,8 @@ class Hash(object):
         return total_length
 
     def add(self, key, value):
-        bucket = self.func(key)
-        self.vec[bucket].add(HashTuple(key, value))
+        hash_value = self.func(key)
+        self.vec[hash_value].add(HashTuple(key, value))
 
     def __str__(self):
         result = ""
@@ -44,15 +44,15 @@ class Hash(object):
         return True
 
     def find(self, key):
-        bucket = self.func(key)
-        hash_tuple = self.vec[bucket].find(key)
+        hash_value = self.func(key)
+        hash_tuple = self.vec[hash_value].find(key)
         if hash_tuple is not None:
             return hash_tuple.value
         return None
 
     def remove(self, key):
-        bucket = self.func(key)
-        return self.vec[bucket].remove(key)
+        hash_value = self.func(key)
+        return self.vec[hash_value].remove(key)
 
     def clean(self):
         for data_structure in self.vec:
