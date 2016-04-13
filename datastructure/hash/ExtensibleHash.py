@@ -15,7 +15,10 @@ class Bucket(object):
                 total_length += 1
         return total_length
 
-    def add(self):
+    def is_full(self):
+        return len(self) >= len(self.vec)
+
+    def add(self, key, value):
         pass
 
     def find(self):
@@ -30,6 +33,8 @@ class ExtensibleHash(Bucket):
         super(ExtensibleHash, self).__init__(bucket_len)
         self._n_bits = 32
         self.deep = math.ceil(math.log(n, 2))
+        self.number_of_buckets = 1
+        self.bucket_len = bucket_len
         self.vec = [Bucket(bucket_len)] * int(math.pow(2, self.deep))
         self.func = lambda key: mod((key * 101), math.pow(2, self._n_bits))
 
@@ -37,11 +42,22 @@ class ExtensibleHash(Bucket):
         total_length = 0
         return total_length
 
-    def add(self):
+    def get_bucket(self, key):
         pass
 
-    def find(self):
+    def add(self, key, value):
+        hash_value = self.func(key)
+        bucket = self.vec[hash_value]
+        if len(bucket) < self.bucket_len:
+            bucket.add(HashTuple(key, value))
+        #split the bucket
+        else:
+            if self.number_of_buckets < self.deep:
+                pass
+
+    def find(self, key, value):
         pass
 
-    def remove(self):
+    def remove(self, key, value):
+        
         pass
